@@ -32,14 +32,14 @@ export function Process() {
   const fill = ((active + 1) / process.steps.length) * 100;
 
   return (
-    <Section id="process" inner="py-20 md:py-28">
+    <Section id="process" inner="py-[clamp(56px,6vw,88px)]">
       <div className="grid gap-12 md:grid-cols-[minmax(0,300px)_1fr] md:gap-16">
         <div className="md:sticky md:top-24 md:self-start">
           <SectionLabel>{process.eyebrow}</SectionLabel>
-          <h2 className="mt-6 text-[clamp(28px,4vw,42px)] leading-[1.06] font-normal tracking-[-0.035em]">
+          <h2 className="mt-6 text-h2 leading-[1.06] font-normal tracking-[-0.035em]">
             {process.title}
           </h2>
-          <p className="mt-5 max-w-[34ch] text-[13px] leading-relaxed text-muted">
+          <p className="mt-5 max-w-[34ch] text-body leading-relaxed text-muted">
             {process.body}
           </p>
         </div>
@@ -66,17 +66,17 @@ export function Process() {
                 className="grid grid-cols-[44px_1fr] gap-x-4 border-b border-line py-8 last:border-b-0 sm:grid-cols-[56px_1fr] sm:gap-x-6"
               >
                 <span
-                  className={`font-mono text-[11px] tracking-[0.12em] transition-colors duration-300 ${
+                  className={`font-mono text-[12px] tracking-[0.12em] transition-colors duration-300 ${
                     i <= active ? "text-fg" : "text-dim"
                   }`}
                 >
                   {step.n}
                 </span>
                 <div className="min-w-0">
-                  <h3 className="text-[clamp(17px,2.2vw,21px)] leading-snug font-medium tracking-[-0.025em]">
+                  <h3 className="text-h3 leading-snug font-medium tracking-[-0.025em]">
                     {step.title}
                   </h3>
-                  <p className="mt-3 max-w-[62ch] text-[13px] leading-relaxed text-muted">
+                  <p className="mt-3 max-w-[62ch] text-body leading-relaxed text-muted">
                     {step.body}
                   </p>
                 </div>

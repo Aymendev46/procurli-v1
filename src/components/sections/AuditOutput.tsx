@@ -21,7 +21,7 @@ function OutputRow({
 
         <div className="min-w-0">
           <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-dim">What you get</p>
-          <h3 className="mt-2 text-[16px] leading-snug font-medium tracking-[-0.02em]">{what}</h3>
+          <h3 className="mt-2 text-h3 leading-snug font-medium tracking-[-0.02em]">{what}</h3>
         </div>
 
         <span className="hidden justify-self-center text-dim transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-fg sm:block">
@@ -30,7 +30,7 @@ function OutputRow({
 
         <div className="min-w-0 border-t border-line pt-4 sm:border-t-0 sm:pt-0">
           <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-dim">Why it matters</p>
-          <p className="mt-2 text-[12.5px] leading-relaxed text-muted">{why}</p>
+          <p className="mt-2 text-body leading-relaxed text-muted">{why}</p>
         </div>
       </div>
     </Reveal>
@@ -83,7 +83,7 @@ function CaseStudy() {
           </div>
 
           <figure className="flex min-w-0 flex-col justify-between gap-8">
-            <blockquote className="text-[clamp(15px,2vw,19px)] leading-[1.5] font-normal tracking-[-0.015em] text-balance">
+            <blockquote className="text-[clamp(17px,1.5vw,22px)] leading-[1.5] font-normal tracking-[-0.015em] text-balance">
               “{caseStudy.quote}”
             </blockquote>
             <figcaption className="flex flex-wrap items-end justify-between gap-4">
@@ -105,10 +105,10 @@ function CaseStudy() {
 export function AuditOutput() {
   return (
     <section id="output" className="relative z-10 border-b border-line bg-bg-2">
-      <div className="container-x py-20 md:py-28">
+      <div className="container-x py-[clamp(56px,6vw,88px)]">
         <Reveal className="flex flex-col items-center text-center">
           <SectionLabel>{output.eyebrow}</SectionLabel>
-          <h2 className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[clamp(26px,4vw,40px)] leading-[1.08] font-normal tracking-[-0.035em]">
+          <h2 className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-h2 leading-[1.08] font-normal tracking-[-0.035em]">
             <span>{output.title[0]}</span>
             <Icon.arrow width={22} height={22} className="text-dim" />
             <span>{output.title[1]}</span>

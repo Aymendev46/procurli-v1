@@ -17,26 +17,24 @@ export const site = {
 } as const;
 
 export const nav = [
-  { label: "Product", href: "#problem" },
-  { label: "Solutions", href: "#services" },
+  { label: "Problem", href: "#problem" },
+  { label: "Solution", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "FAQs", href: "#faq" },
 ] as const;
 
 export const hero = {
-  eyebrow: "Spend audit for manufacturing",
-  title: ["Recover 1–2% of hidden spend", "and unlock trapped working capital"],
-  body: "Even with ERP controls, leakage slips through. Procurli audits your invoices, contracts and payment data to identify overcharges and recoverable cash.",
-  cta: { label: "Book a 30-min claim-free audit", href: "#cta" },
-  proof: ["No integration to start", "Read-only exports", "Findings in days"],
+  title: "Recover 1–2% of hidden spend and unlock trapped working capital",
+  body: "Even with ERP controls, leakage slips through. Procurli audits your data to identify overcharges and recoverable cash.",
+  cta: { label: "Book a 100% risk-free audit", href: "#cta" },
 } as const;
 
 export const clients = [
-  "JAGD",
-  "FILUX",
+  "JAGO",
+  "FRILUX",
   "South Group Recycling",
   "METAWOOD",
-  "Kauno Grūda",
+  "Kauno Grūdai",
   "SALDA",
 ] as const;
 
@@ -47,11 +45,11 @@ export const erp = {
   checks: {
     title: "What the ERP checks",
     items: [
-      "A purchase order exists before the invoice",
+      "A purchase order exists behind the invoice",
       "The invoice totals add up",
       "It's coded to the right account",
       "It's not an exact duplicate invoice number",
-      "The payment was executed on time",
+      "The payment run executed on time",
     ],
   },
   gaps: {
@@ -61,7 +59,7 @@ export const erp = {
       "Contracted rebates and discounts were applied",
       "Payment went out no earlier than agreed terms",
       "SLA and penalty clauses were enforced",
-      "Extra charges — freight, storage, price changes — were agreed",
+      "Extra charges, such as freight, tooling, surcharges, were agreed",
     ],
   },
 } as const;

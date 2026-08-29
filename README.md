@@ -1,8 +1,10 @@
 # Procurli — landing page
 
 Marketing site for **Procurli**, an AI spend-audit product for manufacturing supply-chain
-teams (Vilnius, Lithuania). Built to the supplied mood board: monochrome, hairline grid,
-editorial typography, with dark as the primary brand surface and a full light counterpart.
+teams (Vilnius, Lithuania). Built to match procurli.ai: a 1600px container framed by a
+live border grid, large editorial type over a monochrome palette, a mono face carrying
+nav, labels and buttons, with dark as the primary brand surface and a full light
+counterpart.
 
 Built with **Next.js 16 (App Router, Turbopack)**, **React 19**, **TypeScript** and
 **Tailwind CSS 4**. No UI library, no runtime dependencies beyond React.
@@ -24,15 +26,22 @@ Tailwind through `@theme inline`. Changing a token changes the whole site.
 
 | Token | Role | Dark | Light |
 | --- | --- | --- | --- |
-| `--bg` / `--bg-2` | Page and alternating section grounds | `#0a0a0b` / `#0d0d0f` | `#f3f3f1` / `#eeeeeb` |
-| `--panel` / `--panel-2` | Cards and nested surfaces | `#101012` / `#151517` | `#fbfbfa` / `#ffffff` |
+| `--bg` / `--bg-2` | Page and alternating section grounds | `#090909` / `#0c0c0c` | `#f3f3f1` / `#eeeeeb` |
+| `--panel` / `--panel-2` | Cards and nested surfaces | `#101010` / `#161616` | `#fbfbfa` / `#ffffff` |
 | `--line` / `--line-2` | Hairline rules and borders | 10% / 20% white | 12% / 22% black |
 | `--fg` / `--muted` / `--dim` | Primary, secondary, tertiary text | `#ededee` / `#94959a` / `#82838a` | `#101011` / `#62636a` / `#6b6c73` |
 | `--inv-bg` / `--inv-fg` | Inverted buttons and emphasis blocks | light on dark | dark on light |
 
-**Type** — `Inter Tight` for everything editorial (headings sit at `-0.035em` tracking),
-`Geist Mono` for the bracketed section labels, step numbers and micro-captions. Both are
-loaded via `next/font` with full fallback stacks.
+**Type** — `Geist` for everything editorial, `JetBrains Mono` for nav, buttons, section
+labels, step numbers and chart labels. Both load via `next/font` with full fallback
+stacks, and the variables are declared on `<html>` — `--font-sans-stack` is built on
+`:root`, and a `:root` custom property cannot read a variable defined on a descendant.
+These are the closest Google-hosted stand-ins for the licensed faces on procurli.ai;
+swap them in `layout.tsx` when the brand pack lands.
+
+Sizes run off a shared scale (`--t-display` … `--t-label`), exposed as `text-display`,
+`text-h2`, `text-h3`, `text-lead`, `text-body` and `text-label`. Change the scale once
+and every section follows.
 
 **Theming** — three surfaces, not two. Beyond dark and light, `.on-dark` re-declares the
 token set locally so the hero chart, the case-study poster and the product mockup stay
@@ -40,9 +49,15 @@ dark in *both* themes, exactly as in the mood board. The theme resolves before f
 via an inline script in `<head>` (stored choice wins, then `prefers-color-scheme`, then
 dark), so there is no flash of the wrong surface.
 
-**Grid** — `Rails` draws full-height vertical hairlines locked to the container edges;
-sections are separated by horizontal hairlines and framed blocks get corner ticks
-(`.ticks`). This is what gives the page its blueprint feel.
+**Grid** — the border system is structural, not decoration. `Rails` draws full-height
+vertical hairlines locked to the container edges; sections are separated by horizontal
+hairlines. Structural blocks (the hero, the customer strip) use `.container-flush` so
+their internal rules land exactly on those rails — the hero's centre rule sits on the
+page midline, and the strip's six cells divide the full container width. Prose sections
+use `.container-x`, which adds the gutter.
+
+The strip's dividers come from a `gap-px` grid over a line-coloured track, so they hold
+at any column count without nth-child rules.
 
 ## Structure
 
@@ -88,8 +103,8 @@ footer links. Nothing is hard-coded in components, so copy changes never touch l
 
 These are design stand-ins, marked in the source:
 
-1. **Customer logos** (`src/components/graphics/ClientLogos.tsx`) — typographic wordmarks
-   built to the right optical weight. Swap for the supplied vectors.
+1. **Customer logos** (`src/components/graphics/ClientLogos.tsx`) — typographic stand-ins
+   built to the proportions of the real marks. Swap for the supplied vectors.
 2. **Case-study attribution and video poster** (`caseStudy` in `content.ts`,
    `AuditOutput.tsx`) — the name and role are filler, and the poster is a placeholder
    surface with a non-functional play button. Wire it to the real still and player.

@@ -6,12 +6,12 @@ import { DashboardMockup } from "@/components/graphics/DashboardMockup";
 export function CtaSection() {
   return (
     <section id="cta" className="relative z-10 overflow-hidden border-b border-line bg-bg-2">
-      <div className="container-x pt-20 md:pt-28">
+      <div className="container-x pt-[clamp(56px,6vw,88px)]">
         <Reveal className="flex flex-col items-center text-center">
-          <h2 className="text-[clamp(32px,5.5vw,52px)] leading-[1.04] font-normal tracking-[-0.04em]">
+          <h2 className="text-display leading-[1.04] font-normal tracking-[-0.04em]">
             {cta.title}
           </h2>
-          <p className="mt-5 max-w-[44ch] text-[14px] leading-relaxed text-muted text-balance">
+          <p className="mt-5 max-w-[44ch] text-lead leading-relaxed text-muted text-balance">
             {cta.body}
           </p>
           <div className="mt-8">

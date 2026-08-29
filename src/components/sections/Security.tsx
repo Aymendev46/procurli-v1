@@ -6,10 +6,10 @@ import { Icon } from "@/components/ui/Icons";
 
 export function Security() {
   return (
-    <Section id="security" inner="py-20 md:py-28">
+    <Section id="security" inner="py-[clamp(56px,6vw,88px)]">
       <Reveal>
         <SectionLabel>{security.eyebrow}</SectionLabel>
-        <h2 className="mt-6 text-[clamp(28px,4vw,42px)] leading-[1.06] font-normal tracking-[-0.035em]">
+        <h2 className="mt-6 text-h2 leading-[1.06] font-normal tracking-[-0.035em]">
           {security.title}
         </h2>
       </Reveal>
@@ -27,8 +27,8 @@ export function Security() {
                   <span className="grid size-9 place-items-center rounded-chip border border-line text-muted transition-colors group-hover:border-line-2 group-hover:text-fg">
                     <Glyph width={15} height={15} />
                   </span>
-                  <h3 className="mt-5 text-[14px] font-medium tracking-[-0.015em]">{item.title}</h3>
-                  <p className="mt-2 max-w-[36ch] text-[12.5px] leading-relaxed text-muted">
+                  <h3 className="mt-5 text-h3 font-medium tracking-[-0.015em]">{item.title}</h3>
+                  <p className="mt-2 max-w-[36ch] text-body leading-relaxed text-muted">
                     {item.body}
                   </p>
                 </div>

@@ -33,42 +33,38 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-x">
-        <div className="flex h-[62px] items-center justify-between gap-6">
+        <div className="flex h-[var(--header-h)] items-center gap-9">
           <Link href="#top" aria-label="Procurli — home" className="text-fg">
             <Logo />
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-7 md:flex">
+          {/* Nav sits alongside the wordmark, not centred */}
+          <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
             {nav.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[13px] text-muted transition-colors hover:text-fg"
+                className="font-mono text-[13.5px] text-muted transition-colors hover:text-fg"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <Link
-              href="tel:+37060000000"
-              aria-label="Call Procurli"
-              className="hidden size-8 place-items-center rounded-chip border border-line text-muted transition-colors hover:border-line-2 hover:text-fg sm:grid"
-            >
-              <Icon.phone width={14} height={14} />
-            </Link>
+          <div className="ml-auto flex items-center gap-3">
             <span className="hidden sm:block">
-              <Button href="#cta">Book a demo</Button>
+              <Button href="#cta" size="sm">
+                Book a demo
+              </Button>
             </span>
+            <ThemeToggle />
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? "Close menu" : "Open menu"}
-              className="grid size-8 place-items-center rounded-chip border border-line text-muted md:hidden"
+              className="grid size-9 place-items-center rounded-chip border border-line text-muted md:hidden"
             >
               {open ? <Icon.cross width={14} height={14} /> : <Icon.menu width={14} height={14} />}
             </button>
@@ -89,7 +85,7 @@ export function SiteHeader() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-line py-3 text-[15px] text-fg"
+                className="border-b border-line py-3.5 font-mono text-[14px] text-fg"
               >
                 {item.label}
               </Link>

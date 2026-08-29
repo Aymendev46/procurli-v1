@@ -1,17 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, Geist_Mono } from "next/font/google";
+import { Geist, JetBrains_Mono } from "next/font/google";
 import { site } from "@/lib/content";
 import "./globals.css";
 
-const sans = Inter_Tight({
+/* Closest Google-hosted stand-ins for the faces on procurli.ai — a neo-
+   grotesque for everything editorial, a mono for nav, labels and buttons.
+   Swap in the licensed originals when the brand pack lands. */
+const sans = Geist({
   subsets: ["latin"],
-  variable: "--font-inter-tight",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const mono = Geist_Mono({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -48,7 +51,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0b" },
+    { media: "(prefers-color-scheme: dark)", color: "#090909" },
     { media: "(prefers-color-scheme: light)", color: "#f3f3f1" },
   ],
 };
@@ -64,11 +67,19 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    /* The font variables must live on the root: globals.css builds
+       --font-sans-stack on :root, and a :root custom property cannot read a
+       variable defined on a descendant. */
+    <html
+      lang="en"
+      data-theme="dark"
+      className={`${sans.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${sans.variable} ${mono.variable} antialiased`}>
+      <body className="antialiased">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:rounded-chip focus:bg-inv-bg focus:px-4 focus:py-2 focus:text-[13px] focus:text-inv-fg"

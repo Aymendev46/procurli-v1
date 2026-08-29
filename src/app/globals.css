@@ -9,13 +9,13 @@
 :root {
   color-scheme: dark;
 
-  --bg: #0a0a0b;
-  --bg-2: #0d0d0f;
-  --panel: #101012;
-  --panel-2: #151517;
+  --bg: #090909;
+  --bg-2: #0c0c0c;
+  --panel: #101010;
+  --panel-2: #161616;
 
-  --line: rgba(255, 255, 255, 0.10);
-  --line-2: rgba(255, 255, 255, 0.18);
+  --line: rgba(255, 255, 255, 0.11);
+  --line-2: rgba(255, 255, 255, 0.20);
 
   --fg: #ededee;
   --muted: #94959a;
@@ -24,15 +24,37 @@
   --inv-bg: #f2f2f0;
   --inv-fg: #0a0a0b;
 
-  --radius: 10px;
-  --radius-sm: 6px;
+  /* Leakage chart — a ramp that reads on the current surface. The core disc
+     stays black in both themes; it is a brand element, not a surface. */
+  --donut-core: #070707;
+  --donut-screen: #090909;
+  --donut-leader: rgba(255, 255, 255, 0.4);
+  --chart-1: #ededed;
+  --chart-2: #d9d9d9;
+  --chart-3: #c4c4c4;
+  --chart-4: #adadad;
+  --chart-5: #979797;
+  --chart-6: #838383;
 
-  --container: 1200px;
-  --gutter: 24px;
+  --radius: 4px;
+  --radius-sm: 3px;
 
-  --font-sans-stack: var(--font-inter-tight), ui-sans-serif, system-ui,
+  --container: 1600px;
+  --gutter: 28px;
+  --header-h: 76px;
+
+  /* Type scale — the live site runs noticeably larger than a stock
+     marketing page; these are measured off it, then made fluid. */
+  --t-display: clamp(2.25rem, 3.4vw, 3.5rem);   /* h1   ~56px */
+  --t-h2: clamp(1.9rem, 2.7vw, 2.75rem);        /* h2   ~44px */
+  --t-h3: clamp(1.0625rem, 1.2vw, 1.25rem);     /* h3   ~20px */
+  --t-lead: clamp(0.95rem, 1.05vw, 1.0625rem);   /* lead ~17px */
+  --t-body: clamp(0.875rem, 0.95vw, 0.975rem);  /* body ~15.5px */
+  --t-label: 0.6875rem;                         /* mono ~11px */
+
+  --font-sans-stack: var(--font-geist), ui-sans-serif, system-ui,
     -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-mono-stack: var(--font-geist-mono), ui-monospace, SFMono-Regular,
+  --font-mono-stack: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular,
     "SF Mono", Menlo, monospace;
 }
 
@@ -53,6 +75,16 @@
 
   --inv-bg: #0a0a0b;
   --inv-fg: #f3f3f1;
+
+  --donut-core: #0d0d0d;
+  --donut-screen: #ffffff;
+  --donut-leader: rgba(10, 10, 11, 0.35);
+  --chart-1: #2c2c2c;
+  --chart-2: #414141;
+  --chart-3: #575757;
+  --chart-4: #6f6f6f;
+  --chart-5: #8a8a8a;
+  --chart-6: #a6a6a6;
 }
 
 /* Islands that stay dark in both themes (hero visual, dashboard, case study) */
@@ -87,6 +119,13 @@
 
   --font-sans: var(--font-sans-stack);
   --font-mono: var(--font-mono-stack);
+
+  --text-display: var(--t-display);
+  --text-h2: var(--t-h2);
+  --text-h3: var(--t-h3);
+  --text-lead: var(--t-lead);
+  --text-body: var(--t-body);
+  --text-label: var(--t-label);
 
   --radius-card: var(--radius);
   --radius-chip: var(--radius-sm);
@@ -147,6 +186,12 @@ body::before {
   max-width: var(--container);
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+
+.container-flush {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
 }
 
 /* Full-height vertical hairlines aligned to the container edges */

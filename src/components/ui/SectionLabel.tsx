@@ -1,9 +1,17 @@
-export function SectionLabel({ children }: { children: string }) {
+/** The site's section marker: a short rule, then a mono uppercase word. */
+export function SectionLabel({
+  children,
+  className = "",
+}: {
+  children: string;
+  className?: string;
+}) {
   return (
-    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
-      <span className="mr-2 opacity-55">[</span>
-      <span className="text-muted">{children}</span>
-      <span className="ml-2 opacity-55">]</span>
+    <p className={`flex items-center gap-2.5 ${className}`}>
+      <span aria-hidden className="inline-block h-[11px] w-[2px] bg-muted" />
+      <span className="font-mono text-label uppercase tracking-[0.14em] text-muted">
+        {children}
+      </span>
     </p>
   );
 }

@@ -32,7 +32,7 @@ function Item({
           className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left transition-colors hover:text-fg sm:px-6"
         >
           <span
-            className={`text-[13.5px] leading-snug font-medium tracking-[-0.01em] transition-colors ${
+            className={`text-[15px] leading-snug font-medium tracking-[-0.01em] transition-colors ${
               open ? "text-fg" : "text-muted"
             }`}
           >
@@ -55,7 +55,7 @@ function Item({
         style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <p className="max-w-[68ch] px-5 pb-6 text-[12.5px] leading-relaxed text-muted sm:px-6">
+          <p className="max-w-[68ch] px-5 pb-6 text-body leading-relaxed text-muted sm:px-6">
             {a}
           </p>
         </div>
@@ -68,16 +68,16 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <Section id="faq" inner="py-20 md:py-28">
+    <Section id="faq" inner="py-[clamp(56px,6vw,88px)]">
       <div className="grid gap-10 md:grid-cols-[minmax(0,340px)_1fr] md:gap-16">
         <div className="md:sticky md:top-24 md:self-start">
           <SectionLabel>{faq.eyebrow}</SectionLabel>
-          <h2 className="mt-6 text-[clamp(28px,4vw,42px)] leading-[1.06] font-normal tracking-[-0.035em]">
+          <h2 className="mt-6 text-h2 leading-[1.06] font-normal tracking-[-0.035em]">
             {faq.title[0]}
             <br />
             {faq.title[1]}
           </h2>
-          <p className="mt-5 max-w-[32ch] text-[13px] leading-relaxed text-muted">{faq.body}</p>
+          <p className="mt-5 max-w-[32ch] text-lead leading-relaxed text-muted">{faq.body}</p>
           <div className="mt-7">
             <Button href={faq.cta.href} variant="outline">
               {faq.cta.label}

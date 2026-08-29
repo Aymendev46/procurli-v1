@@ -50,7 +50,7 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(next)}
       aria-label={`Switch to ${next} theme`}
-      className="grid size-8 place-items-center rounded-chip border border-line text-muted transition-colors hover:border-line-2 hover:text-fg"
+      className="grid size-8 place-items-center text-muted transition-colors hover:text-fg"
     >
       {theme === "dark" ? (
         <Icon.sun width={14} height={14} />
